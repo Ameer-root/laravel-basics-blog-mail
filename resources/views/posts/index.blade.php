@@ -30,9 +30,26 @@
 
             <aside class="col-md-4 blog-sidebar">
                 <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="font-italic">About</h4>
-                    <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur
-                        purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                    <h4>مبادئ التسويق الإلكتروني</h4>
+                    <p>يمكنك الآن شراء نسختك من كتاب مبادئ التسويق الإلكتروني بتخفيض قدره 30%. أدخل عنوان بريدك
+                        الإلكتروني لتصلك رسالة بالتفاصيل.</p>
+                    <form action="/mail" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">إرسال</button>
+                        </div>
+                    </form>
+                    @error('email')
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="p-4">
